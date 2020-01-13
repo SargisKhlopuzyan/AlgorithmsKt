@@ -27,11 +27,11 @@ fun main() {
 /**
  * Run-time complexity of Ο(n)
  * */
-private fun linearSearch(list: List<Person>, value: Person): Int {
+private fun linearSearch(list: List<Person>, value: Person): Int? {
     for ((index, item) in list.withIndex()) {
         if (item == value) {
             return index
         }
     }
-    return -1
+    return null
 }
