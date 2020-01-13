@@ -25,7 +25,7 @@ fun main() {
 }
 
 /**
- * Run-time complexity of Ο(n)
+ * Runtime complexity of linear search algorithm is Ο(n)
  * */
 private fun linearSearch(list: List<Person>, value: Person): Int? {
     for ((index, item) in list.withIndex()) {

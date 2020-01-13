@@ -8,18 +8,23 @@ package app.example.algorithms.search
 
 fun main() {
     val list = intArrayOf(1, 4, 8, 9, 20, 100, 123, 145)
-
     binarySearch(list, 8)
 }
-
+/**
+ * Runtime complexity of binary search algorithm is Ο(log n)
+ * */
 fun binarySearch(list: IntArray, value: Int): Int? {
-
-    var index = find(list, value, 0, list.size - 1)
+    var index = findBinarySearch(list, value, 0, list.size - 1)
     println("index: $index")
     return index
 }
 
-fun find(list: IntArray, value: Int, lowerBound: Int, upperBound: Int): Int? {
+fun findBinarySearch(
+    list: IntArray,
+    value: Int,
+    lowerBound: Int,
+    upperBound: Int
+): Int? {
 
     if (upperBound < lowerBound) {
         return null
@@ -28,11 +33,11 @@ fun find(list: IntArray, value: Int, lowerBound: Int, upperBound: Int): Int? {
     val midPoint = lowerBound + (upperBound - lowerBound) / 2
 
     if (list[midPoint] < value) {
-        return find(list, value, midPoint + 1, upperBound)
+        return findBinarySearch(list, value, midPoint + 1, upperBound)
     }
 
     if (list[midPoint] > value) {
-        return find(list, value, lowerBound, midPoint - 1)
+        return findBinarySearch(list, value, lowerBound, midPoint - 1)
     }
 
     if (list[midPoint] == value) {
